@@ -106,6 +106,15 @@
 - 自动化优化：使用了Xgboost根据配置进行性能预测，使用真实的测试数据作为训练数据，使用模拟退火的方法进行配置更新；并提供了一个可以交叉编译的分布式远程调用。
 - 开创性的工作，不过TVM现在还在开发当中，有些组件还不太稳定，另外还不够用户友好。
 
+### Relax: Composable Abstractions for End-to-End Dynamic Machine Learning[Arxiv'23][UW]
+- 主要解决TVM推导过程中的动态形状问题
+- 提出了一种跟踪全局动态Tensor shape关系和调用的程序抽象
+- 跨层级的抽象优化，能同时使用tvm本身和其他外部的lib
+- 语法声明：相比与以？声明的TVM动态形状，改为以n、m的sym_var()形式声明，这样诸如reshape类的操作可以保留形状信息，提前申请内存，动态形状也是一等公民
+- 组合优化：跨层级的动态shape算子融合，减少了跨函数调用
+- 组合优化：预先内存分配，通过预留的形状信息，可有效减少内存分配大小
+- 组合优化：分步骤地进行lowwer，可以同时使用TensorIR和cutlass
+
 ### LightSeq: A High Performance Inference Library for Transformers[NAACL'21][ByteDance]
 - 主要针对transformer的优化，有3点贡献
 - 1. 将粗粒度的节点融合转化为细粒度的节点融合，以避免频繁的kernel启动，例如手写layer norm kernel可以节省内存启动和保存中间结果。
