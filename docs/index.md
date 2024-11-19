@@ -66,10 +66,10 @@
 
 
 ### Physically Adversarial Attacks and Defenses in Computer Vision: A Survey[arXiv'22][Beihang]
-- 额外文档，见[计算机视觉领域的物理对抗攻防综述](%20security/计算机视觉领域的物理对抗攻防综述.md)
+- 额外文档，见[计算机视觉领域的物理对抗攻防综述](security/计算机视觉领域的物理对抗攻防综述.md)
 
 ### A survey on hardware security of DNN models and accelerators[arXiv'22]
-- 额外文档，见[DNN模型和加速器的硬件安全综述](%20security/DNN模型和加速器的硬件安全综述.md)
+- 额外文档，见[DNN模型和加速器的硬件安全综述](security/DNN模型和加速器的硬件安全综述.md)
 
 ## 模型后门和数据投毒
 
@@ -105,6 +105,13 @@
 - 低层次Tensor级优化：利用Halide原则将规划和计算分开，首先引入了领域专用语言Tensor expression表示计算，然后写Schedule进行优化，转化为TVM IR对应着特定硬件表示。具体的Schedule为：带共享内存的循环并行、向量化以利用硬件的SIMD和向量运算、访问执行分离隐藏延迟。
 - 自动化优化：使用了Xgboost根据配置进行性能预测，使用真实的测试数据作为训练数据，使用模拟退火的方法进行配置更新；并提供了一个可以交叉编译的分布式远程调用。
 - 开创性的工作，不过TVM现在还在开发当中，有些组件还不太稳定，另外还不够用户友好。
+
+### Ansor: Generating High-Performance Tensor Programs for Deep Learning[OSDI'20][Cal]
+- 是一个张量生成框架，有三个特色，一是有更大的搜索空间，二是在更大的搜索空间内进行高效地搜索，三是识别并优化子图以获得更好的端到端的性能
+- 如何选取更大的搜索空间？首先将原图划分为一系列子图，使用一些规则进行约束，从后往前枚举DAG图，论文列举了6种，1. 直接跳过 2. 严格inline 3. 数据重用时进行Tiling 3. 数据重用且可Fuse时 4. 数据重用但不可Fuse，使用Cache 5. 可Reduce并行
+- 如何高效地进行搜索，根据上一步的搜索空间得到的草稿，随机从搜索空间中选取一些点(tile size,并行化外部循环、向量化内部循环、unroll部分内循环)，然后使用cost model进行迭代微调
+- 使用xgboost作为cost model，每次选择一个特征空间，然后使用进化算法随机再变异一些基因，进行多次迭代，最后在硬件平台测量实际效果最后更新cost model
+- 限制：没有考虑dynamic shape，不支持稀疏计算，只考虑高层级的与硬件无关的代码优化，没有考虑诸如tensor的硬件相关的代码优化
 
 ### Relax: Composable Abstractions for End-to-End Dynamic Machine Learning[Arxiv'23][UW]
 - 主要解决TVM推导过程中的动态形状问题
@@ -144,4 +151,4 @@
 
 ## 目标检测
 ### YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors[arxiv'22][IIS]
-- 见额外文档，[yolov7](yolov7.md)
+- 见额外文档，[yolov7](objectdet/yolov7.md)
