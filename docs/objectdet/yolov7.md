@@ -1,6 +1,6 @@
 # yolov7
 
-![](imgs/yolov7-1.jpg)
+![](../imgs/yolov7-1.jpg)
 <div align='center'> 图1. 网络架构总览图 </div>
 <div align='center'> 注: CBS指Conv+BN+SiLu (3,2) 表示卷积核大小为 3， 步长为 2，c代表channel </div>
 我们先整体来看下 Yolo v7，首先对输入的图片 resize 为 640x640 大小，输入到 backbone 网络中，然后经 head 层网络输出三层不同 size 大小的 feature map，经过 Rep 和 conv输出预测结果，这里以 coco 为例子，输出为 80 个类别，然后每个输出(x ,y, w, h, o) 即坐标位置和宽跟高还有置信度，3 是指的 anchor 数量，因此每一层的输出为 (80+5)x3 = 255再乘上 feature map 的大小就是最终的输出了。
@@ -13,7 +13,7 @@ Yolo v7是基于v4、v5改进的，提出了模型结构重参化（Rep），以
 训练时有三个分支的相加输出，部署时会将分支的参数重参数化到主分支上。
 </p>
 
-![](imgs/yolov7-2.png)
+![](../imgs/yolov7-2.png)
 
 <p>
 二、高效的聚合网络E-ELAN采用expand、shuffle、merge cardinality结构，实现在不破坏原始梯度路径的情况下，提高网络的学习能力。在体系结构方面，E-ELAN只改变了计算模块中的结构，而过渡层的结构则完全不变。作者的策略是利用分组卷积来扩展计算模块的通道和基数，将相同的group parameter和channel multiplier用于计算每一层中的所有模块。然后，将每个模块计算出的特征图根据设置的分组数打乱成G组，最后将它们连接在一起。此时，每一组特征图中的通道数将与原始体系结构中的通道数相同。最后，作者添加了G组特征来merge cardinality。
