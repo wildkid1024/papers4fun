@@ -136,6 +136,13 @@
 - 悬空张量的内存管理。具体来讲就是将内存分为永久内存和暂时内存，并将训练参数和更新参数要用的最大内存提前分配好，并进行内存复用，可以节省一部分频繁加载卸载的消耗。
 - 整体还是偏工程的工作，作为学术的novelty并不那么fancy，不过对于实现还是有些启发的。
 
+### Bring Your Own Codegen to Deep Learning Compiler[Arivx'21][AWS]
+- 为了解决不同模型在不同编译器上的部署问题，提出了一个统一的编译器划分框架
+- 首先将编译模型分为Host端和加速器端，Host端调用通用的函数，加速器端则使用抵用依赖的指令
+- 执行三步操作对图进行划分：1. 基于pattern的划分模式 2. 对划分好的块进行注释 3. 按照执行量的阈值进行划分 
+- 针对加速的设计主要考虑两点：量化和NCHW转换；针对codegen 使用了3种方式，json、c和特定格式；
+- 在runtime时对模型输入输出权重进行管理，可以利用内存重用和cache engine的一些方法
+
 ## 模型优化
 ### FastFormers: Highly Efficient Transformer Models for Natural Language Understanding[arxiv'20][MSRA]
 - msra文章，但是只是单纯做了模型裁剪、蒸馏和量化，是一篇纯实验结果堆的文章 
