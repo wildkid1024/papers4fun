@@ -93,6 +93,9 @@
 - 针对加速的设计主要考虑两点：量化和NCHW转换；针对codegen 使用了3种方式，json、c和特定格式；
 - 在runtime时对模型输入输出权重进行管理，可以利用内存重用和cache engine的一些方法
 
+### Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems[Arixv'23][CMU]
+ - 见论文[LLM_Serving_Survey](LLM_Serving_Survey.md)
+
 ## 模型优化
 ### FastFormers: Highly Efficient Transformer Models for Natural Language Understanding[arxiv'20][MSRA]
 - msra文章，但是只是单纯做了模型裁剪、蒸馏和量化，是一篇纯实验结果堆的文章 
