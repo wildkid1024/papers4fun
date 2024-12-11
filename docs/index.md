@@ -96,6 +96,13 @@
 ### Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems[Arixv'23][CMU]
  - 见论文[LLM_Serving_Survey](LLM_Serving_Survey.md)
 
+### Ladder: Enabling Efficient Low-Precision Deep Learning Computing through Hardware-aware Tensor Transformation[OSDI'24][MS]
+- 基于3点观察：1. 越来越多的量化类型 2. 硬件对量化支持并不丰富 3. 低精度计算并不高效
+- 提出了tType和tTile分别表示数据类型和分片，将tTile作为最小的计算单位，可以表示任意位数
+- 解耦计算和存储，pipeline分为load、conmpute和store三个阶段，有Slice、Map、Pad、Convert等几种变换
+- 引入了更大的搜索空间，1. 根据硬件带宽分配作为提示 2. 使用现有的tvm调度方法 3. 添加变换
+
+ 
 ## 模型优化
 ### FastFormers: Highly Efficient Transformer Models for Natural Language Understanding[arxiv'20][MSRA]
 - msra文章，但是只是单纯做了模型裁剪、蒸馏和量化，是一篇纯实验结果堆的文章 
