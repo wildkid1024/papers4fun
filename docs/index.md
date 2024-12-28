@@ -102,6 +102,11 @@
 - 解耦计算和存储，pipeline分为load、conmpute和store三个阶段，有Slice、Map、Pad、Convert等几种变换
 - 引入了更大的搜索空间，1. 根据硬件带宽分配作为提示 2. 使用现有的tvm调度方法 3. 添加变换
 
+### Welder: Scheduling Deep Learning Memory Access via Tile-graph
+- 基于几点观察：1. 模型推理瓶颈在内存访问 2. 内存访问间有重用和提高带宽的机会 3. 这种重用机会是可以配置来进行tradeoff的
+- 提出了基于tile的内存访问调度方法，首先把相邻间的算子计算，分为了大小不同的tile,然后去遍历不同的fuse模式，找到内存访问最小的那种模式
+- 举了Conv+Relu+MaxPooling的例子，加载[4,4,c]到L1中，加载[3,3]到L0中，在L0级别计算Conv+Relu Fuse，在L1时累计[2,2]个元素，然后再调度到L0中进行maxpooling计算
+
  
 ## 模型优化
 ### FastFormers: Highly Efficient Transformer Models for Natural Language Understanding[arxiv'20][MSRA]
