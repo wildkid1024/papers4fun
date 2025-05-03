@@ -112,3 +112,12 @@
 ### FastFormers: Highly Efficient Transformer Models for Natural Language Understanding[arxiv'20][MSRA]
 - msra文章，但是只是单纯做了模型裁剪、蒸馏和量化，是一篇纯实验结果堆的文章 
 - https://github.com/microsoft/fastformers
+
+
+
+## OCR 文字识别
+### General OCR Theory: Towards OCR-2.0 via a Unified End-to-end Model[arxiv'24][StepFun]
+- 包含了3部分，分别是image encoder层，linear适应层和输出解码层，其中encoder层使用的ViDet模型,解码器使用的Qwen-0.5B模型
+- 训练分为3步，第一步训练encoder,使用纯字符识别任务，使用opt-125M进行解码，第二步连接了Qwen-0.5B解码器，使用更大量的数据进行联合训练，第三步冻结encoder,训练decoder以适应细粒度的任务
+- 数据输入为1024\*1024\*3,输出的token数量为256\*1024，linear层的权重为1024\*1024,decoder部分与Qwen-0.5B对齐，
+- 在预训练encoder阶段，使用5M数据，3M的场景识别和2M的文档识别，3M的场景数据使用paddleocr识别工具，分割为整图级别和单行级别，2M的文档数据使用fitiz提取，
