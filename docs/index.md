@@ -116,8 +116,32 @@
 
 
 ## OCR 文字识别
+
+### DBNet: Real-time Scene Text Detection with Differentiable Binarization[AAAI'20]
+
+
+### SVTR: Scene Text Recognition with a Single Visual Model[IJCAI'22][BJTU,Baidu]
+- 介绍了场景文本识别的几种主流结构，分别为：1. CNN+RNN 2. CNN + 自回归 3. CNN + MHA fusion 
+- 首先将图像经过一个Patch Embedding，通常是CNN，在这里是2个3\*3 stride为2的CBR结构
+- 然后经过3个stage，每个stage包含了mixing block和merging的网络结构，最终图像大小从`H\*W\*3 -> 1 \* (W/4) * D_3`
+- mixing block使用了global attention结构来提取字符和字符间的特征，使用local attention提取笔画间的特征，merging操作是一个CB块，将高度减半，相应地channel的维度翻倍
+- 在paddleocr中，使用了两个mobilenet block提取视觉特征，svtrblock的stage设置为2，后面的GAP被替换成了conv1x1
+
+
 ### General OCR Theory: Towards OCR-2.0 via a Unified End-to-end Model[arxiv'24][StepFun]
 - 包含了3部分，分别是image encoder层，linear适应层和输出解码层，其中encoder层使用的ViDet模型,解码器使用的Qwen-0.5B模型
 - 训练分为3步，第一步训练encoder,使用纯字符识别任务，使用opt-125M进行解码，第二步连接了Qwen-0.5B解码器，使用更大量的数据进行联合训练，第三步冻结encoder,训练decoder以适应细粒度的任务
 - 数据输入为1024\*1024\*3,输出的token数量为256\*1024，linear层的权重为1024\*1024,decoder部分与Qwen-0.5B对齐，
-- 在预训练encoder阶段，使用5M数据，3M的场景识别和2M的文档识别，3M的场景数据使用paddleocr识别工具，分割为整图级别和单行级别，2M的文档数据使用fitiz提取，
+- 在预训练encoder阶段，使用5M数据，3M的场景识别和2M的文档识别，3M的场景数据使用paddleocr识别工具，分割为整图级别和单行级别，2M的文档数据使用fitiz提取
+
+
+### Nougat: Neural Optical Understanding for Academic Documents[ICLR'24][Meta]
+- 一个端到端的文档识别模型，使用的encoder和decoder的模式，其中encoder使用的swin transformer,decoder使用的是mbart
+- 输入大小为896\*672,Decoder采用的是10层的架构，包含了自注意层和跨注意层，最大长度为4096,所有模型均采用预训练模型
+- 数据增强部分：使用了Albumentations库进行增强，在输入patch中加入扰动
+- 模型是一页一页进行预测的，预测整篇文档时，会先预测全部，然后使用一个TF-IDF向量机的模型进行模糊分页和fuzzy比对精确分页
+
+
+### Dount: 
+
+### LayoutLM:
