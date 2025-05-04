@@ -6,7 +6,7 @@
 
 ## 目标检测
 ### YOLOv6: A Single-Stage Object Detection Framework for Industrial Applications[meituan]
-- 见额外文档，[yolov6][yolov6.md]
+- 见额外文档，[yolov6](yolov6.md)
 
 
 ### YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors[arxiv'22][IIS]

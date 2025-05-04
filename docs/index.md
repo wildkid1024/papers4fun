@@ -127,7 +127,9 @@
 - 使用基于目标检测的方法进行文本检测，使用fasterrcnn模型进行检测，将检测框分块，使用w=16,h设置几个不同高度方式进行预测，预测时只预测了中心坐标和高度
 
 
-### CRNN:
+### CRNN: An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition[PAMI'17][HUST]
+- 模型部分:先进行cnn卷出来256*1*768大小的特征，然后从256维度进行切割，256为时序维度，768为seq维度，那么就可以放到rnn，这里是两层的双向lstm，经过卷积后得到输出特征
+- 模型的输出为[1,60,6625]，使用ctc方式对模型进行后处理，其中有空格和省略符号，那么就可以得到60个字符编码，去除空格即可
 
 
 ### SVTR: Scene Text Recognition with a Single Visual Model[IJCAI'22][BJTU,Baidu]
