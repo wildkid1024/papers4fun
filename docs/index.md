@@ -117,7 +117,17 @@
 
 ## OCR 文字识别
 
-### DBNet: Real-time Scene Text Detection with Differentiable Binarization[AAAI'20]
+### DBNet: Real-time Scene Text Detection with Differentiable Binarization[AAAI'20][HUST]
+- 将文本检测看作是一个图像分割任务，先使用4层网络进行特征提取，然后使用类似特征金字塔的方式将特征放大。
+- 使用放大后的的特征图预测二值图，DBNet的创新点在于，它不光预测二值图，还会预测阈值，即阈值也是受训练的，相应的值是可学习的值
+- 后处理部分: 先通过cv的findpolygraphpoint方法找到图像中不规则点，然后使用cv.maxrec找到其中最大矩形点,计算nms，将其中不符合分数和抑制的框删除，得到最后文本检测框
+
+
+### CPTN: Detecting Text in Natural Image with Connectionist Text Proposal Network[ECCV'16][SIAT@CAS]
+- 使用基于目标检测的方法进行文本检测，使用fasterrcnn模型进行检测，将检测框分块，使用w=16,h设置几个不同高度方式进行预测，预测时只预测了中心坐标和高度
+
+
+### CRNN:
 
 
 ### SVTR: Scene Text Recognition with a Single Visual Model[IJCAI'22][BJTU,Baidu]
