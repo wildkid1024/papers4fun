@@ -154,6 +154,13 @@
 - 模型是一页一页进行预测的，预测整篇文档时，会先预测全部，然后使用一个TF-IDF向量机的模型进行模糊分页和fuzzy比对精确分页
 
 
-### Dount: 
+### Dount: OCR-free Document Understanding Transformer[ECCV'22][naverclova]
+- 传统的文档理解是先进行OCR识别，然后将OCR识别放到下游理解任务，本文提出的是一个端到端的模型
+- 模型包含了图像编码部分和文本解码部分，其中编码部分使用的swin transformers，解码期使用的Bart，对于一个输入，定义一个特殊字符，然后采用自回归的方式生成内容
+- 使用了一个SynthDoG的图像生成器，使用wiki文本在imagenet作为背景进行生成
+- 预训练任务是从左到右读取文本内容，finetune任务是微调对应任务
+
 
 ### LayoutLM:
+
+### BART：
