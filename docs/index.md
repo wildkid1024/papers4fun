@@ -161,6 +161,10 @@
 - 预训练任务是从左到右读取文本内容，finetune任务是微调对应任务
 
 
-### LayoutLM:
+### LayoutLMv2: Multi-modal Pre-training for Visually-Rich Document Understanding[IJCNLP'21][HIT,MSRA]
+- 属于预训练模型，分为文本embedding、图像embedding和版式layout,其中文本embedding包含了文本的token编码、位置编码和区域编码，图像编码包含了特征图patch编码、位置编码，对于1D position embedding，和text embedding layer共享；对于segment embedding使用符号[C]（text的segment embedding用的是[A]和[B]）。layout编码会编码6个位置特征，从x和y方向上分别编码，然后将所有便么加在一起
+- Spatial-Aware Attention：加入了相对位置上的偏置参数，算是给了额外的先验qk的位置信息
+- 预训练：1. 预测遮蔽（mask）的text token。对于被遮蔽的text token，对应的图片区域也要遮蔽掉。2. 图片上的一些token lines会被覆盖（cover）掉，然后使用对应的text token预测图片中的token line是否被覆盖 3. 预测该文本在该文档里（还是在其它文档里）
+
 
 ### BART：
