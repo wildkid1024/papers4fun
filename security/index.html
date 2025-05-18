@@ -1,0 +1,912 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../objectdet/yolov7/">
+      
+      
+        <link rel="next" href="DNN%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%8A%A0%E9%80%9F%E5%99%A8%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%AE%89%E5%85%A8%E7%BB%BC%E8%BF%B0/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Index - papers4fun</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="papers4fun" class="md-header__button md-logo" aria-label="papers4fun" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            papers4fun
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Index
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="papers4fun" class="md-nav__button md-logo" aria-label="papers4fun" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    papers4fun
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    每周论文合集
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM_Serving_Survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems[Arixv'23][CMU]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Objectdet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Objectdet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../objectdet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../objectdet/MSTCT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MS-TCT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../objectdet/yolov6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YOLOv6: A Single-Stage Object Detection Framework for Industrial Applications[meituan]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../objectdet/yolov7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors[CVPR'23][sinica.tw]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      对抗攻防
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="对抗攻防">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#segment-and-complete-defending-object-detectors-against-adversarial-patch-attacks-with-robust-patch-detectioncvpr22jhu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Segment and Complete: Defending Object Detectors against Adversarial Patch Attacks with Robust Patch Detection[CVPR'22][JHU]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defending-physical-adversarial-attack-on-object-detection-via-adversarial-patch-feature-energymm22south-korea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defending Physical Adversarial Attack on Object Detection via Adversarial Patch-Feature Energy[MM'22][South Korea]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defending-person-detection-against-adversarial-patch-attack-by-using-universal-defensive-frametip22kaist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defending Person Detection Against Adversarial Patch Attack by using Universal Defensive Frame[TIP'22][KAIST]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-of-spatial-context-in-adversarial-robustness-for-object-detectioncvpr20umbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role of Spatial Context in Adversarial Robustness for Object Detection[CVPR'20][UMBC]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physically-adversarial-attacks-and-defenses-in-computer-vision-a-surveyarxiv22beihang" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physically Adversarial Attacks and Defenses in Computer Vision: A Survey[arXiv'22][Beihang]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-survey-on-hardware-security-of-dnn-models-and-acceleratorsarxiv22" class="md-nav__link">
+    <span class="md-ellipsis">
+      A survey on hardware security of DNN models and accelerators[arXiv'22]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型后门和数据投毒
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模型后门和数据投毒">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trojan-attack-on-neural-networksndss18purdue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trojan attack on neural networks[NDSS'18][purdue]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#latent-backdoor-attacks-on-deep-neural-networksccs19uchicago" class="md-nav__link">
+    <span class="md-ellipsis">
+      Latent Backdoor Attacks on Deep Neural Networks[CCS'19][UChicago]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neural-cleanse-identifying-and-mitigating-backdoor-attacks-in-neural-networksisp19uchicago" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neural Cleanse: Identifying and Mitigating Backdoor Attacks in Neural Networks[ISP'19][UChicago]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detecting-backdoor-attacks-on-deep-neural-networks-by-activation-clusteringaaai19ibm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detecting Backdoor Attacks on Deep Neural Networks by Activation Clustering[AAAI'19][IBM]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="DNN%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%8A%A0%E9%80%9F%E5%99%A8%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%AE%89%E5%85%A8%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DNN模型和加速器的硬件安全综述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E9%A2%86%E5%9F%9F%E7%9A%84%E7%89%A9%E7%90%86%E5%AF%B9%E6%8A%97%E6%94%BB%E9%98%B2%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    计算机视觉领域的物理对抗攻防综述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      对抗攻防
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="对抗攻防">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#segment-and-complete-defending-object-detectors-against-adversarial-patch-attacks-with-robust-patch-detectioncvpr22jhu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Segment and Complete: Defending Object Detectors against Adversarial Patch Attacks with Robust Patch Detection[CVPR'22][JHU]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defending-physical-adversarial-attack-on-object-detection-via-adversarial-patch-feature-energymm22south-korea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defending Physical Adversarial Attack on Object Detection via Adversarial Patch-Feature Energy[MM'22][South Korea]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defending-person-detection-against-adversarial-patch-attack-by-using-universal-defensive-frametip22kaist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defending Person Detection Against Adversarial Patch Attack by using Universal Defensive Frame[TIP'22][KAIST]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-of-spatial-context-in-adversarial-robustness-for-object-detectioncvpr20umbc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Role of Spatial Context in Adversarial Robustness for Object Detection[CVPR'20][UMBC]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physically-adversarial-attacks-and-defenses-in-computer-vision-a-surveyarxiv22beihang" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physically Adversarial Attacks and Defenses in Computer Vision: A Survey[arXiv'22][Beihang]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-survey-on-hardware-security-of-dnn-models-and-acceleratorsarxiv22" class="md-nav__link">
+    <span class="md-ellipsis">
+      A survey on hardware security of DNN models and accelerators[arXiv'22]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型后门和数据投毒
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模型后门和数据投毒">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trojan-attack-on-neural-networksndss18purdue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trojan attack on neural networks[NDSS'18][purdue]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#latent-backdoor-attacks-on-deep-neural-networksccs19uchicago" class="md-nav__link">
+    <span class="md-ellipsis">
+      Latent Backdoor Attacks on Deep Neural Networks[CCS'19][UChicago]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neural-cleanse-identifying-and-mitigating-backdoor-attacks-in-neural-networksisp19uchicago" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neural Cleanse: Identifying and Mitigating Backdoor Attacks in Neural Networks[ISP'19][UChicago]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detecting-backdoor-attacks-on-deep-neural-networks-by-activation-clusteringaaai19ibm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detecting Backdoor Attacks on Deep Neural Networks by Activation Clustering[AAAI'19][IBM]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Index</h1>
+
+<h2 id="_1">对抗攻防</h2>
+<h3 id="segment-and-complete-defending-object-detectors-against-adversarial-patch-attacks-with-robust-patch-detectioncvpr22jhu">Segment and Complete: Defending Object Detectors against Adversarial Patch Attacks with Robust Patch Detection[CVPR'22][JHU]</h3>
+<ul>
+<li>提出了SAC检测器用于防御目标检测的贴纸攻击，SAC检测器分为两部分，分割部分和补全部分。</li>
+<li>分割部分使用了将贴纸检测视为图像分割任务，使用UNet进行自对抗训练，找到贴纸大致位置。</li>
+<li>补全部分使用汉明距离作为预测和GT的度量，补全的是所有在gama重叠范围内的交集。</li>
+<li>改进了APRICOT数据集，增加了Mask标注。</li>
+</ul>
+<h3 id="defending-physical-adversarial-attack-on-object-detection-via-adversarial-patch-feature-energymm22south-korea">Defending Physical Adversarial Attack on Object Detection via Adversarial Patch-Feature Energy[MM'22][South Korea]</h3>
+<ul>
+<li>提出了APE(Adversarial Patch-Feature Energy Masking)模块防御类别为人的目标检测的攻击，APE模块可分为两部分，APE-masking 和 APE-refinement。</li>
+<li>APE-masking部分负责解析出攻击对应的mask，具体做法是通过objectness loss反向传播的L1范式的平方获得FE ，根据干净样本和对抗样本的分布差异确定阈值，大于阈值会被认为是proposal patch，然后通过上采样累加形成最终mask。</li>
+<li>APE-refinement部分根据APE-masking解析出的mask进行加固，具体是根据干净样本的分布均值的比例进行clip（这里似乎假设对抗样本的分布均值比干净的大？），对应位置上的adv patch即为clip平滑后的值。</li>
+<li>属于图像信号处理的一类工作，有点意思，但套路有点老。</li>
+</ul>
+<h3 id="defending-person-detection-against-adversarial-patch-attack-by-using-universal-defensive-frametip22kaist">Defending Person Detection Against Adversarial Patch Attack by using Universal Defensive Frame[TIP'22][KAIST]</h3>
+<h3 id="role-of-spatial-context-in-adversarial-robustness-for-object-detectioncvpr20umbc">Role of Spatial Context in Adversarial Robustness for Object Detection[CVPR'20][UMBC]</h3>
+<h3 id="physically-adversarial-attacks-and-defenses-in-computer-vision-a-surveyarxiv22beihang">Physically Adversarial Attacks and Defenses in Computer Vision: A Survey[arXiv'22][Beihang]</h3>
+<ul>
+<li>额外文档，见<a href="%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E9%A2%86%E5%9F%9F%E7%9A%84%E7%89%A9%E7%90%86%E5%AF%B9%E6%8A%97%E6%94%BB%E9%98%B2%E7%BB%BC%E8%BF%B0/">计算机视觉领域的物理对抗攻防综述</a></li>
+</ul>
+<h3 id="a-survey-on-hardware-security-of-dnn-models-and-acceleratorsarxiv22">A survey on hardware security of DNN models and accelerators[arXiv'22]</h3>
+<ul>
+<li>额外文档，见<a href="DNN%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%8A%A0%E9%80%9F%E5%99%A8%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%AE%89%E5%85%A8%E7%BB%BC%E8%BF%B0/">DNN模型和加速器的硬件安全综述</a></li>
+</ul>
+<h2 id="_2">模型后门和数据投毒</h2>
+<h3 id="trojan-attack-on-neural-networksndss18purdue">Trojan attack on neural networks[NDSS'18][purdue]</h3>
+<ul>
+<li>神经网络的后门攻击</li>
+<li>相比BadNet添加了神经网络反传时的优化信息，取代了badnet中任意像素块的触发器</li>
+</ul>
+<h3 id="latent-backdoor-attacks-on-deep-neural-networksccs19uchicago">Latent Backdoor Attacks on Deep Neural Networks[CCS'19][UChicago]</h3>
+<ul>
+<li>后门攻击，将后门触发器隐藏在模型隐特征中，当用户下载预训练模型后便可触发</li>
+<li>训练教师网络模型使其包含目标攻击类别y_t,然后使用target和非target数据进行微调</li>
+<li>根据训练好的教师模型使用优化算法生成触发器</li>
+<li>使用投毒数据注入模型后门，训练数据，固定最后一层，只训练模型特征</li>
+<li>将模型的最后一层去除，隐藏y_t</li>
+</ul>
+<h3 id="neural-cleanse-identifying-and-mitigating-backdoor-attacks-in-neural-networksisp19uchicago">Neural Cleanse: Identifying and Mitigating Backdoor Attacks in Neural Networks[ISP'19][UChicago]</h3>
+<ul>
+<li>后门防御，通过优化的方法构建逆向触发器，基于指定后门标签的触发器相比其他标签的小</li>
+</ul>
+<h3 id="detecting-backdoor-attacks-on-deep-neural-networks-by-activation-clusteringaaai19ibm">Detecting Backdoor Attacks on Deep Neural Networks by Activation Clustering[AAAI'19][IBM]</h3>
+<ul>
+<li>后门检测与防御方法，通过特征图的</li>
+<li>使用投毒数据，取模型最后一层前的特征图数据，压平</li>
+<li>对所有激活进行降维、聚类成2类</li>
+<li>使用异常分析算法分析是否具有投毒样本，主要有1. 阈值法 2. 平均度法，相对大小比对 3. 聚类边缘值</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

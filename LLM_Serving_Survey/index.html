@@ -1,0 +1,1028 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../objectdet/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems[Arixv'23][CMU] - papers4fun</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#towards-efficient-generative-large-language-model-serving-a-survey-from-algorithms-to-systemsarixv23cmu" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="papers4fun" class="md-header__button md-logo" aria-label="papers4fun" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            papers4fun
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems[Arixv'23][CMU]
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="papers4fun" class="md-nav__button md-logo" aria-label="papers4fun" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    papers4fun
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    每周论文合集
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems[Arixv'23][CMU]
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems[Arixv'23][CMU]
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#22-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 GPU和加速器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 当前推理系统面临的挑战
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 分类
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 算法创新
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 算法创新">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1 解码算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.2 架构设计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.3 模型压缩
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 系统优化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 系统优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-bit" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1 低bit量化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2 并行计算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.3 内存管理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.4 请求调度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#325-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.5 Kernel优化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 软件框架
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 与其他工作关联
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 未来方向
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Objectdet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Objectdet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../objectdet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../objectdet/MSTCT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MS-TCT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../objectdet/yolov6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YOLOv6: A Single-Stage Object Detection Framework for Industrial Applications[meituan]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../objectdet/yolov7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors[CVPR'23][sinica.tw]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/DNN%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%8A%A0%E9%80%9F%E5%99%A8%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%AE%89%E5%85%A8%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DNN模型和加速器的硬件安全综述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E9%A2%86%E5%9F%9F%E7%9A%84%E7%89%A9%E7%90%86%E5%AF%B9%E6%8A%97%E6%94%BB%E9%98%B2%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    计算机视觉领域的物理对抗攻防综述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#22-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 GPU和加速器
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 当前推理系统面临的挑战
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 分类
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 分类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 算法创新
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 算法创新">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1 解码算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.2 架构设计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.3 模型压缩
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 系统优化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 系统优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-bit" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1 低bit量化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2 并行计算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.3 内存管理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#324" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.4 请求调度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#325-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.5 Kernel优化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 软件框架
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 与其他工作关联
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 未来方向
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="towards-efficient-generative-large-language-model-serving-a-survey-from-algorithms-to-systemsarixv23cmu">Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems[Arixv'23][CMU]</h1>
+<h3 id="22-gpu">2.2  GPU和加速器</h3>
+<p>经典GPU架构中有很多SM，每个SM中包含了一些SRAM，用以在线程间进行数据交换和同步。</p>
+<p>encompass CPU:[19, 222]
+移动边缘设备：[71]
+ASICs: [202, 307]
+加速器：TPU[136], FPGA[284]</p>
+<h3 id="24">2.4 当前推理系统面临的挑战</h3>
+<ul>
+<li>延迟和响应时间：低延迟快响应</li>
+<li>内存访问和模型大小：降低内存占用</li>
+<li>扩展性和吞吐：并行计算、调度、系统优化</li>
+<li>硬件兼容性和加速：硬件感知优化</li>
+<li>精度和效率均衡：在精度和效率之间做均衡</li>
+</ul>
+<h2 id="3">3 分类</h2>
+<p>分为算法创新和系统优化</p>
+<p><img alt="Alt text" src="../imgs/LLM-Serving-Survey/image.png" /></p>
+<h3 id="31">3.1 算法创新</h3>
+<h4 id="311">3.1.1 解码算法</h4>
+<ul>
+<li>非自回归式的解码：将自回归式的解码变成可并行的非自回归方式[97, 104, 108]。半自回归编码[98]。并行编码[217]将编码过程视为一个非线性公式，使用Jacob和Gauss-Seidel定点迭代算法加速运算。非自回归编码综述[271]。</li>
+<li>投机编码：使用小模型预测多个词进行投机解码，然后使用大的LLM进行验证。SpecInfer[177]使用了多个小模型，然后使用了一个基于树的投机预测。</li>
+<li>早停机制：也叫自适应计算，将浅层的输出特征作为输出推理，不等模型运行完成。但错误率较高。</li>
+<li>级联推理：使用了多个推理模型，当请求较容易时使用简单的推理，当请求较难时，使用大的模型。</li>
+</ul>
+<p><img alt="Alt text" src="../imgs/LLM-Serving-Survey/image-1.png" /></p>
+<h4 id="312">3.1.2 架构设计</h4>
+<p><img alt="Alt text" src="../imgs/LLM-Serving-Survey/image-2.png" /></p>
+<ul>
+<li>配置下调：使用浅层的encoder和decoder，权重共享，词表缩放</li>
+<li>Attention简化：因为Attention计算复杂度为O(L^2)，稀疏化、核化和分解，代表有滑窗attention(129， 299)， hash Attention(198), 蒸馏Attention(74)。StreamingLLM评估了初始token并维护一个滑动窗口。FastGen将Attention头应用到不同的强调KV。</li>
+<li>激活共享：共享中间激活结果来减少计算量。MQA[220]：多个Q共享一对KV，应用PaLM，ChatGLM2；GQA[2]：分组共享KV，应用LLAMA2，Mistral-7B</li>
+<li>条件计算：MOE模型，使用多个专家模型来组成一整个模型。</li>
+<li>循环单元：使用RNN代替Attention，代表RWKV[200]和RetNet[212]，还有线性Attention的尝试。但这种结构对长上下文支持可能没那么好。</li>
+</ul>
+<h4 id="313">3.1.3 模型压缩</h4>
+<ul>
+<li>知识蒸馏：分为白盒蒸馏和黑盒蒸馏。代表Alpaca和Vicuna。</li>
+<li>模型裁剪：主要是结构化裁剪，裁剪Attention头[172]。以及使用矩阵分解方法产生2:4的半结构稀疏，LoSparse[161]和DSFormer[49]使用小的稠密矩阵来近似大的稀疏矩阵。Flash-LLM[267]使用内存友好的SpMM算法。</li>
+</ul>
+<h3 id="32">3.2 系统优化</h3>
+<h4 id="321-bit">3.2.1 低bit量化</h4>
+<p>使用低bit的数据来表示32位的数。分为QAT和PTQ。PTQ代表有W4A16在GPTQ[88]，W8A8在SmoothQuant[268].量化也应用与上下文压缩CacheGen[169]和微调QloRA[70], PEQA[142].</p>
+<h4 id="322">3.2.2 并行计算</h4>
+<ul>
+<li>模型并行：TP[227]把模型中的Tensor纵向分为多份，然后并行计算每一份的内容，TP可以降低模型时延。PP[189]将模型的每一层横向切割为子模型的一部分，PP可以增加模型吞吐但不降低时延。SP序列并行是指在序列长度的维度上分布式化计算和存储[124]。自动并行技巧(Alpa[303],FlexFlow[128, 250], Galvatron[179])自动进行资源划分来达到模型和资源的平衡。</li>
+<li>去中心化推理：使用模型和数据并行方式在脆弱节点上进行联合推理计算，类似于联邦学习。</li>
+</ul>
+<h4 id="323">3.2.3 内存管理</h4>
+<p>主要是由上下文KV Cache带来的，KV Cache会动态放缩。传统的方法比如FasterTransFormer是通过定长的内存预分配来管理的。vllm[150] 提出了paged Attention将KV Cache分割为多个不连续的内存block。SpecInfer[177]提出了Tree Attention和深度优先的树遍历来评估剩余KV Cahe的内存分配，主要应用在多个请求共享prompt前缀的情况。Lightllm[21]则提出了一个细粒度的基于token block的内存管理机制来进行内存管理。</p>
+<h4 id="324">3.2.4 请求调度</h4>
+<p>请求调度算法是为了最大化资源利用、保证响应时间等服务级别的目标。分为动态batch[33],preemption[114],priority[191],swapping[39],model selection[107],cost efficiency[295]，负载均衡和资源分配[259]。LLM独有的特征：模型形状大，迭代的自编码机制、不确定的输出长度和上下文信息的状态管理。</p>
+<p>selective batching和iteration-level scheduling策略，主要有vllm,rayLLM[27], inflight batching TensorRT-LLM。SpecInfer采用投机采样来迭代地选择下一个请求。FastServe[261]使用较短完成时间来代替FCFS。SARATHI[31]解决模型初始化时的bubble问题。</p>
+<h4 id="325-kernel">3.2.5 Kernel优化</h4>
+<ul>
+<li>Kernel Fusion：减少内存启动和内存访问开销。不少框架重用 1. 相同形状的GEMM，例如QKV的乘积计算 2. 加法偏置的融合，比如LN、Relu等。</li>
+<li>定制化Attention，定制化GPU kernel。比如cuDNN提供FMHA的API。开源的分为prefill和decode阶段，比如xformers[153]使用了CUTLASS[24]在prefill阶段实现了online softmax；在decode阶段的目标是最大化线程利用率和最小化HBM占用，比如使用共享内存和寄存器。FlashDecoding[249]在序列长度的维度上进行了划分，把KV Cache分为了多个block，在blcok级别进行并行计算然后reduce。</li>
+<li>采样优化：采样算法会影响到LLM的生成质量，例如贪心采样和beam-search采样，topk,topp,temperature采样等控制输出的随机性。有两方面的问题，一是KV Cache带来的内存压力，二是词表带来的效率问题。LightSeq将词表分为k个group，在每个group中重排选择候选token。</li>
+<li>变长序列：输入输出都变长，一种方法是组batch，但会出现padding的问题。打包技巧[1, 293]将序列存储为连续的内存序列，中间无padding。Ragged Tensor[84]进一步支持紧凑Tensor的计算。还有一种方法是对序列划分为bucket，不过需要复杂的内存管理和请求调度。</li>
+<li>自动编译：手写Kernel，或者自动编译的kernel，比如TVM、TensorIR等，让编译方法去发现更有效的kernel。</li>
+</ul>
+<h2 id="4">4. 软件框架</h2>
+<p><img alt="Alt text" src="../imgs/LLM-Serving-Survey/image-3.png" /></p>
+<ol>
+<li>其他硬件的定制方案：PopTransformer[17], CTranslate2[8],llama.cpp</li>
+<li>在其他框架上的部署方案：OpenLLm[26], xinference[30],Lmdeploy[20], gpt-fast[15], DeepSpeed-MII和DeepSpeed-FastGen[11]和RayLLm、RayServe[27]</li>
+</ol>
+<p>在初始阶段TensorRT-LLm基于上下文长度来选择cublas和Flash Attention。还有优化是将GEMM替换为GEMV。vllm提出是为了提高模型的吞吐，FlexFlow-serve利用SpecInfer是为了降低延迟。</p>
+<h2 id="6">6. 与其他工作关联</h2>
+<p>主要关注在GLM的serving问题，关注GPU上的推理高效问题[190, 297],新型编译器[78]。模型压缩和量化[126]。分布式训练[42, 175]</p>
+<h2 id="7">7. 未来方向</h2>
+<ul>
+<li>硬件加速器的开发和改进：如何结合硬件架构进行开发和改进。</li>
+<li>高效的解码算法：解锁自编码的速度并维护生成质量，一个方向便是投机编码</li>
+<li>长上下文场景的优化：长文本会出现"loss in middle"的问题，内存消耗和KV Cache访问，平方级的计算量</li>
+<li>发现可替代的架构：Attention-free的模型架构</li>
+<li>复杂场景下的部署：混合异构计算、去中心化计算</li>
+<li>对特定需求的自动适应：AutoML和模型管理等</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
