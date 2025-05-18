@@ -8,6 +8,13 @@
 - 下游微调任务为文本分类，句子标注，句子生成和翻译
 
 
+### DeiT: Training data-efficient image transformers & distillation through attention[ICML'21][Facebook]
+- 针对vit训练慢的问题，使用了超参数设置，知识蒸馏，数据增广等方式加速模型训练
+- 使用教师模型的软标签结果，在transformer后添加蒸馏token，连同原有的分类的token的损失一起组成loss
+- 超参数设置上，使用了截断正态分布，使用cosine学习调节方法
+- 使用了多种数据增广方法。随机擦除，cutmix，随机增强等
+
+
 ## 行为检测
 ### MS-TCT: Multi-Scale Temporal ConvTransformer for Action Detection[CVPR'22][Inria]
 - 额外文档，见[MS-TCT](MSTCT.md)
