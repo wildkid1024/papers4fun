@@ -1,8 +1,16 @@
 
+## 图像预训练
+
+### BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension[ACL'20][Facebook]
+- 同时参考了bert的encoder和gpt的decoder，使用全量的transformer架构
+- bart对输入加入了各种噪声，在输出时将其还原，加入的噪声包括，1. 随机替换token为mask 2. 随机删除token 3. 将连续span替换为[mask]，4. 将doc中的句子打乱 5. 随机选择一个句子作为开头
+- 对于ABCDE的输入，首先在AC之间加0-3的噪声，再将CD进行掩码，得到输出是ABCDE
+- 下游微调任务为文本分类，句子标注，句子生成和翻译
+
+
 ## 行为检测
 ### MS-TCT: Multi-Scale Temporal ConvTransformer for Action Detection[CVPR'22][Inria]
 - 额外文档，见[MS-TCT](MSTCT.md)
-
 
 ## 目标检测
 ### YOLOv6: A Single-Stage Object Detection Framework for Industrial Applications[meituan]

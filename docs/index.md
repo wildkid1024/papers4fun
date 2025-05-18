@@ -167,11 +167,7 @@
 - 预训练：1. 预测遮蔽（mask）的text token。对于被遮蔽的text token，对应的图片区域也要遮蔽掉。2. 图片上的一些token lines会被覆盖（cover）掉，然后使用对应的text token预测图片中的token line是否被覆盖 3. 预测该文本在该文档里（还是在其它文档里）
 
 
-### TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models
+### TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models[AAAI'23][MS]
 - 行识别模型，使用了纯transformer架构，encoder和decoder使用的都是预训练模型
 - 编码器使用的是类Deit的架构，实验中使用的是Deit和BEiT，解码器使用的类bert的架构，实验中使用的RoBERTa和miniLM
-
-### BART：
-
-### Deit
 
