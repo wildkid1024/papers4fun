@@ -1,6 +1,9 @@
 
 ## 图像预训练
 
+### ViT:
+ 
+ 
 ### BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension[ACL'20][Facebook]
 - 同时参考了bert的encoder和gpt的decoder，使用全量的transformer架构
 - bart对输入加入了各种噪声，在输出时将其还原，加入的噪声包括，1. 随机替换token为mask 2. 随机删除token 3. 将连续span替换为[mask]，4. 将doc中的句子打乱 5. 随机选择一个句子作为开头
@@ -13,6 +16,8 @@
 - 使用教师模型的软标签结果，在transformer后添加蒸馏token，连同原有的分类的token的损失一起组成loss
 - 超参数设置上，使用了截断正态分布，使用cosine学习调节方法
 - 使用了多种数据增广方法。随机擦除，cutmix，随机增强等
+
+### BEiT: 
 
 
 ## 行为检测

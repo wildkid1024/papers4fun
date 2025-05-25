@@ -167,6 +167,11 @@
 - 预训练：1. 预测遮蔽（mask）的text token。对于被遮蔽的text token，对应的图片区域也要遮蔽掉。2. 图片上的一些token lines会被覆盖（cover）掉，然后使用对应的text token预测图片中的token line是否被覆盖 3. 预测该文本在该文档里（还是在其它文档里）
 
 
+### LayoutLMv3: Pre-training for Document AI with Unified Text and Image Masking[MM'22][MSRA]
+- 相比v2没有使用CNN编码器，在text embedding上，没有使用v2 word级别的编码，而是使用的句子级别的embedding，所有单词共享一个bbox；在图像编码上，使用了把图像分割为p\*p大小的块，然后展开为HW/P^2大小的2维矩阵，注意这里只使用了1D向量
+- 使用了3种损失函数：MLM，MIM和WPA，其中MLM是指对文本span进行mask，大概30%,训练从图像到文本的能力；MIM mask了40%的block级别的token，训练文本是重建图像的能力。WPA，是文本和图像的对齐，当文本被mask后，计算对应图像mask的损失
+
+
 ### TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models[AAAI'23][MS]
 - 行识别模型，使用了纯transformer架构，encoder和decoder使用的都是预训练模型
 - 编码器使用的是类Deit的架构，实验中使用的是Deit和BEiT，解码器使用的类bert的架构，实验中使用的RoBERTa和miniLM
