@@ -1,7 +1,11 @@
 
 ## 图像预训练
 
-### ViT:
+### ViT: An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale[ICLR'21][Google]
+- 使用了纯transformer去解决Image分类问题，提出了用transformr解决问题的方法
+- 将图像分为了14\*14的patch，每个patch的大小为768，使用Linear Embedding将图像转换为196\*768大小的输入，增加了cls patch作为分类的标志，输入是197\*768
+- 将位置作为1D编码加到原有的embdding中，不同编码方式对结果影响不大
+
  
  
 ### BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension[ACL'20][Facebook]
