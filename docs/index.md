@@ -161,6 +161,12 @@
 - 预训练任务是从左到右读取文本内容，finetune任务是微调对应任务
 
 
+### Dolphin: Document Image Parsing via Heterogeneous Anchor Prompting[Arxiv'25][ByteDance]
+- 提供了两阶段的OCR解析方法：先解析后分析，第一阶段使用layout进行解析，第二阶段使用细粒度parse进行并行化识别，两阶段使用prompt进行控制
+- 类似于Dount模型，使用的是swin transformer作为视觉encoder，使用mBart作为解码器
+- 第一阶段会解析出一堆layout，使用第一阶段的layout信息去分割图片，进行二阶段并行识别元素级信息
+
+
 ### LayoutLMv2: Multi-modal Pre-training for Visually-Rich Document Understanding[IJCNLP'21][HIT,MSRA]
 - 属于预训练模型，分为文本embedding、图像embedding和版式layout,其中文本embedding包含了文本的token编码、位置编码和区域编码，图像编码包含了特征图patch编码、位置编码，对于1D position embedding，和text embedding layer共享；对于segment embedding使用符号[C]（text的segment embedding用的是[A]和[B]）。layout编码会编码6个位置特征，从x和y方向上分别编码，然后将所有便么加在一起
 - Spatial-Aware Attention：加入了相对位置上的偏置参数，算是给了额外的先验qk的位置信息
