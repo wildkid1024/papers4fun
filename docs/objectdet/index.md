@@ -48,4 +48,8 @@
 - 首先将h\*w\*c大小的图像分割为4块，每块的大小为h/4\*w/4\*48，在每一个块中做滑动窗口block运算，在每次进入到attention block前，都要进行一次patch merging，类似于池化操作，将相邻patch做合并，将分辨率大小缩小1/2，将通道数增加一倍；而block中则是做了两次，一次是常规的局部的transformer,一次是滑动窗口的transformer，所以模型block内层数是2的倍数
 - mask机制：移动窗口会带来额外的不规则的窗口，每个窗口内的个数不同，做法是将窗口右下移动，在计算attention时将不相邻的patch做掩码，最后一次计算就能得到不同窗口的掩码
 
-### DETR:
+
+### DETR: End-to-End Object Detection with Transformers[ECCV'20][Facebook]
+- 使用transformer做目标检测，使用二分图匹配计算损失去除了nms过程，得到Faster-RCNN近似的AP
+- 首先将原图像经过R50，得到850\*256大小的特征，然后送入到Encoder结构中，作为Decoder的输出，在Decoder输入中加入Learnable Query，最终得到100\*256大小的输出
+- 对于输出，通过二分匹配的方式计算损失，而在推理阶段则使用阈值的方式得到输出框，阈值为0.7
