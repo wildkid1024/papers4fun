@@ -1,0 +1,885 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../yolov6/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>MS-TCT - papers4fun</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ms-tct" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="papers4fun" class="md-header__button md-logo" aria-label="papers4fun" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            papers4fun
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MS-TCT
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="papers4fun" class="md-nav__button md-logo" aria-label="papers4fun" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    papers4fun
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    每周论文合集
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLM_Serving_Survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems[Arixv'23][CMU]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Objectdet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Objectdet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    MS-TCT
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    MS-TCT
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、问题与动机（背景）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、解决方案
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、解决方案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visual-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      （一）Visual Encoder阶段
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="（一）Visual Encoder阶段">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#13d" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）双流膨胀3D卷积网:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      （二）Temporal Encoder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-scale-mixer" class="md-nav__link">
+    <span class="md-ellipsis">
+      （三）Temporal Scale Mixer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classification-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      （四）Classification Module
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、实验
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、总结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yolov6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YOLOv6: A Single-Stage Object Detection Framework for Industrial Applications[meituan]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yolov7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors[CVPR'23][sinica.tw]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/DNN%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%8A%A0%E9%80%9F%E5%99%A8%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%AE%89%E5%85%A8%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DNN模型和加速器的硬件安全综述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E9%A2%86%E5%9F%9F%E7%9A%84%E7%89%A9%E7%90%86%E5%AF%B9%E6%8A%97%E6%94%BB%E9%98%B2%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    计算机视觉领域的物理对抗攻防综述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、问题与动机（背景）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、解决方案
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、解决方案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visual-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      （一）Visual Encoder阶段
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="（一）Visual Encoder阶段">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#13d" class="md-nav__link">
+    <span class="md-ellipsis">
+      （1）双流膨胀3D卷积网:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      （二）Temporal Encoder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporal-scale-mixer" class="md-nav__link">
+    <span class="md-ellipsis">
+      （三）Temporal Scale Mixer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classification-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      （四）Classification Module
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、实验
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      四、总结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ms-tct">MS-TCT</h1>
+<h2 id="_1">一、问题与动机（背景）</h2>
+<p>从未剪辑的长视频中做动作检测，然而这种未剪辑的长视频中涵盖了复杂的时间联系，包括由一系列原子动作组成的复合动作和同时发生的多个原子动作。所以，该问题的核心在于同事捕捉短期和长期的时间信息。
+如下图所示，要理解“Take food（拿食物）”这个动作只需认识到前面的“Open fridge（开冰箱）”即可，即两者存在短期联系；而要理解“Make sandwich（做三明治）”这个就需要全部认识到“Take food（拿食物）”、“Close fridge（关冰箱）“、“Put on table（放在桌上）”、“Pour water（倒水）”这一系列动，即两者存在长期联系。
+<img alt="" src="../../imgs/mstct-1.png" /></p>
+<p>对于短期时间信息建模，之前许多工作采用一维时间卷积（1D Temporal Convolution），然而它的缺点就是忽略了长期的时间联系。对于长期时间信息建模，Transformers无疑是比较好的选择，多头注意力（multi-head self-attention）可以建立全局时间段一对一的联系,但是它却忽略了局部的时间联系（Local inductive bias，局部归纳偏置）。所以，本文的动机是结合convolution的局部建模能力和self-attention的全局建模能力，联合捕捉视频的长-短期时间信息。</p>
+<h2 id="_2">二、解决方案</h2>
+<p><img alt="" src="../../imgs/mstct-2.png" /></p>
+<p>如上图所示，本文提出了一种Multi-Scale Temporal ConvTransformer(MS-TCT)网络结构，它由四部分组成：Visual Encoder 、Temporal Encoder、Temporal Scale Mixer和Classification Module。该模型主要流程如下：
+1、将视频均分为T段并在每段密集采样8帧作为Visual Encoder(默认为I3D)的输入。
+2、Visual Encoder提取到视觉特征后通过全局平均池化得到1D 的时间Token作为Temporal Encoder的输入。
+3、Temporal Encoder采用多个Stage对多尺度的时间信息建模，各Stage输出特征图的时间分辨率减半但特征维度翻倍，这种结构使得TE早期stage能够学习到原子动作间细粒度的联系，晚期stage学习到复合动作的粗糙联系。（类似ResNet 残差网络）
+4、Temporal Scale Mixer的作用是将各Stage输出的时间多尺度特征图融合，获得一个具有局部视野和全局视野的统一表示。（类似FPN 特征金字塔网络）
+5、Classification Module具有两个分支，其中一个分支对TS Mixer融合后的特征计算分类概率（BCE Loss），另外一个分支对TS Mixer融合后的特征预测动作热力图，用于感知各个类别动作的相对位置（Focal Loss）。注意，模型在预测时不用heat-map 分支。</p>
+<h3 id="visual-encoder">（一）Visual Encoder阶段</h3>
+<p>将视频均分为T段，每段取8帧作为关键帧，作为Encoder的输入，Visual Encoder的主干网络是I3D网络（双流膨胀3D卷积网络）。</p>
+<h4 id="13d">（1）双流膨胀3D卷积网:</h4>
+<p><img alt="" src="../../imgs/mstct-3.png" /></p>
+<p>I3D主要应对的是剪辑视频的动作识别，将卷积核从二维扩展到了三维，可以学习时间维度的特征。通常使用I3D提取双流特征（RGB流与光线流，本文主要使用RGB流），得到的结果会好一些，一方面主要因为网络结构更深，另一方面使用3d卷积核，将时序信息包含进来，能提取更完备的视频特征（除去最后的预测部分）。</p>
+<pre><code>每一个视频段（8帧的图片）经过I3D网络后形成一个的token，最终组合成一个的Tokens。可以理解为这个模块把一个视频分成多个视频片段，每个token代表一个视频片段的特征。
+</code></pre>
+<p><img alt="" src="../../imgs/mstct-5.png" /></p>
+<h3 id="temporal-encoder">（二）Temporal Encoder</h3>
+<p>Temporal Encoder是由4个Stage组成，每个Stage包含Temporal Merge Block和Global-Local Relational Block组成。上图是Temporal Encoder中的一个Stage。
+    （1）时间融合模块（TMB）：是一个时间卷积层（Temporal Convolution），使用1D Conv实现，作用是减小时间分辨率的同时扩增特征维度，相当于一个时间下采样模块。
+    （2）全局-局部关系模块（GLRB）：本文提到的利用卷积以及自注意力机制的优点的具体表现
+全局模块采用多头自注意力机制学习全局联系。
+局部模块采用时间卷积学习局部联系，Local中TC前后各有一个线性层，前者是扩张维度，后者是缩小维度，及倒残差结构，其目的是增强TC部分的特征提取能力。
+注：文章提到Linear是一个核为1的1d Conv，代码中是线性变换</p>
+<h3 id="temporal-scale-mixer">（三）Temporal Scale Mixer</h3>
+<p><img alt="" src="../../imgs/mstct-6.png" /></p>
+<p>设每个Stage的输出为 ，Fn，n∈{1,2,...,N} ，为了实现每个Stage的输出都有相同的时间分辨率，需要对它们进行上采样，该操作定义为：</p>
+<p><img alt="" src="../../imgs/mstct-7.png" /></p>
+<p>设最后一个阶段的特征图上采样后为  使得最后一个阶段的特征图向所有低层特征图融合后沿着特征维度拼接气啦，具体定义如下：</p>
+<p>TSM的结构与FPN（特征金字塔）类似，又有不同。TSM直接使用最后Stage的特征图向前的各个阶段融合。作者在论文中讲到实现特征融合有很多复杂的方式，但是实验发现这个简单的结构性能最好。
+注：论文与代码有出入，左侧的输出没有用到进行特征融合</p>
+<h3 id="classification-module">（四）Classification Module</h3>
+<p>分类模块由分类器与热力图两部分组成。分别输出一个T * C的矩阵 T代表视频均分的T段，C代表类别种类。
+<img alt="" src="../../imgs/mstct-8.png" /></p>
+<p>为什么不用Softmax作为分类器，是因为某段视频可能包含多种动作。</p>
+<p>(1)分类器：
+对C种种类进行二分类。
+由两个线性层（代码中为两个卷积核大小为1的1d Conv层）组成。
+损失函数用的是二分类交叉熵函数
+<img alt="" src="../../imgs/mstct-9.png" /></p>
+<p>(2)热力图：
+    为了对各个类别在时间上的相对位置编码，每个类别在时间上的分布是不同的，需要感知某个侗族奥在时间上的中心位置，利于确定它的边界。所以热力图本质上是一个可学习的位置编码。
+    由一个TC层一个线性层（分别为卷积核大小为3和1的Conv层）组成，中间夹一个非线性激活函数（ReLu）
+    Ground truth（训练正向样本）服从高斯分布，损失函数也是基于预测的中心位置计算其高斯分布。设 表示实体a和类别c的中心位置，那么它的高斯分布可以计算为：
+<img alt="" src="../../imgs/mstct-10.png" /> <br />
+由于视频中可能有多个实体做了相同的动作但中心位置不同，那么热力图的标签 G∗ 可计算为：
+<img alt="" src="../../imgs/mstct-11.png" />
+假设有两个实体在不同时间节点上做了相同的动作。</p>
+<p>对两者计算Max得到 G∗</p>
+<p>热力图的损失函数为：</p>
+<p><img alt="" src="../../imgs/mstct-12.png" /></p>
+<p>Focal Loss：<img alt="" src="../../imgs/mstct-13.png" /></p>
+<pre><code>该函数是在原有的交叉熵函数进行改进的
+</code></pre>
+<p>与分别为超参，被称为调制系数。
+目的是通过减少易分类样本的权重，从而使模型在训练时更专注于难分类的样本。当一个样本被分错的时候，Pt是很小的所以(1-Pt)接近于1，损失基本不被影响。反之，当Pt接近1的时候(1-Pt)接近0，那么well-classified样本的权值就被调低了。
+用来控制正负样本的权重，目标检测问题中，正样本数量往往远低于负样本，为了平衡正负样本对总损失的权重，通常取比较小的值来降低负样本的权重。</p>
+<pre><code>最后，分类模块的最终损失函数为
+</code></pre>
+<p><img alt="" src="../../imgs/mstct-14.png" /></p>
+<h2 id="_3">三、实验</h2>
+<p>消融实验：</p>
+<p><img alt="" src="../../imgs/mstct-15.png" /></p>
+<p>本文提出的ConvTransformer并没有在输入端引入位置编码，而self-attention是对相对位置不敏感的。然而，heat map分支通过有监督的方式让模型学习的动作中心分布，能够更好的确定动作的时间边界，对于动作检测任务更加适应。</p>
+<h2 id="_4">四、总结</h2>
+<p>1、提出ConvTransformer将self-attention的全局偏好和convolution的局部偏好结合在一起。
+2、提出heat-map分支使得模型学习动作发生的中心位置，有利于动作的边界确定。
+3、采用多尺度+融合结构使得模型学习到了多尺度的时间信息。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

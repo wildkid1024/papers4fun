@@ -1,0 +1,1492 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="LLM_Serving_Survey/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>papers4fun</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="papers4fun" class="md-header__button md-logo" aria-label="papers4fun" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            papers4fun
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              每周论文合集
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="papers4fun" class="md-nav__button md-logo" aria-label="papers4fun" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    papers4fun
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    每周论文合集
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    每周论文合集
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      信息检索、搜索
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="信息检索、搜索">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mobius-transformation-for-fast-inner-product-search-on-graphnips19baidu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Möbius Transformation for Fast Inner Product Search on Graph[NIPS'19][Baidu]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedding-based-retrieval-in-facebook-searchkdd20facebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embedding-based Retrieval in Facebook Search[KDD'20][Facebook]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformer-memory-as-a-differentiable-search-indexnips22google" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transformer Memory as a Differentiable Search Index[NIPS'22][Google]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-neural-corpus-indexer-for-document-retrievalnips22msra" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Neural Corpus Indexer for Document Retrieval[NIPS'22][MSRA]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      推荐系统
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="推荐系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wide-deep-learning-for-recommender-systemsdlrs16google" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wide &amp; Deep Learning for Recommender Systems[DLRS'16][Google]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deepfm-a-factorization-machine-based-neural-network-for-ctr-predictionijcai17huawei" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeepFM: A Factorization-Machine based Neural Network for CTR Prediction[IJCAI'17][Huawei]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-cross-network-for-ad-click-predictionsdcnarxiv17google" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep &amp; Cross Network for Ad Click Predictions(DCN)[arXiv'17][google]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-interest-network-for-click-through-rate-predictiondinkdd18ali" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep Interest Network for Click-Through Rate Prediction(DIN)[KDD'18][Ali]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      系统、编译器设计、优化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="系统、编译器设计、优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tvm-an-automated-end-to-end-optimizing-compiler-for-deep-learningosdi18uw" class="md-nav__link">
+    <span class="md-ellipsis">
+      TVM: an automated end-to-end optimizing compiler for deep learning[OSDI'18][UW]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ansor-generating-high-performance-tensor-programs-for-deep-learningosdi20cal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ansor: Generating High-Performance Tensor Programs for Deep Learning[OSDI'20][Cal]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relax-composable-abstractions-for-end-to-end-dynamic-machine-learningarxiv23uw" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relax: Composable Abstractions for End-to-End Dynamic Machine Learning[Arxiv'23][UW]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lightseq-a-high-performance-inference-library-for-transformersnaacl21bytedance" class="md-nav__link">
+    <span class="md-ellipsis">
+      LightSeq: A High Performance Inference Library for Transformers[NAACL'21][ByteDance]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lightseq2-accelerated-training-for-transformer-based-models-on-gpussc22bytedance" class="md-nav__link">
+    <span class="md-ellipsis">
+      LightSeq2: Accelerated Training for Transformer-based Models on GPUs[SC'22][ByteDance]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bring-your-own-codegen-to-deep-learning-compilerarivx21aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bring Your Own Codegen to Deep Learning Compiler[Arivx'21][AWS]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#towards-efficient-generative-large-language-model-serving-a-survey-from-algorithms-to-systemsarixv23cmu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems[Arixv'23][CMU]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ladder-enabling-efficient-low-precision-deep-learning-computing-through-hardware-aware-tensor-transformationosdi24ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ladder: Enabling Efficient Low-Precision Deep Learning Computing through Hardware-aware Tensor Transformation[OSDI'24][MS]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#welder-scheduling-deep-learning-memory-access-via-tile-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Welder: Scheduling Deep Learning Memory Access via Tile-graph
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型优化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模型优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastformers-highly-efficient-transformer-models-for-natural-language-understandingarxiv20msra" class="md-nav__link">
+    <span class="md-ellipsis">
+      FastFormers: Highly Efficient Transformer Models for Natural Language Understanding[arxiv'20][MSRA]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ocr" class="md-nav__link">
+    <span class="md-ellipsis">
+      OCR 文字识别
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OCR 文字识别">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dbnet-real-time-scene-text-detection-with-differentiable-binarizationaaai20hust" class="md-nav__link">
+    <span class="md-ellipsis">
+      DBNet: Real-time Scene Text Detection with Differentiable Binarization[AAAI'20][HUST]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cptn-detecting-text-in-natural-image-with-connectionist-text-proposal-networkeccv16siatcas" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPTN: Detecting Text in Natural Image with Connectionist Text Proposal Network[ECCV'16][SIAT@CAS]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crnn-an-end-to-end-trainable-neural-network-for-image-based-sequence-recognition-and-its-application-to-scene-text-recognitionpami17hust" class="md-nav__link">
+    <span class="md-ellipsis">
+      CRNN: An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition[PAMI'17][HUST]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svtr-scene-text-recognition-with-a-single-visual-modelijcai22bjtubaidu" class="md-nav__link">
+    <span class="md-ellipsis">
+      SVTR: Scene Text Recognition with a Single Visual Model[IJCAI'22][BJTU,Baidu]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-ocr-theory-towards-ocr-20-via-a-unified-end-to-end-modelarxiv24stepfun" class="md-nav__link">
+    <span class="md-ellipsis">
+      General OCR Theory: Towards OCR-2.0 via a Unified End-to-end Model[arxiv'24][StepFun]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nougat-neural-optical-understanding-for-academic-documentsiclr24meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nougat: Neural Optical Understanding for Academic Documents[ICLR'24][Meta]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dount-ocr-free-document-understanding-transformereccv22naverclova" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dount: OCR-free Document Understanding Transformer[ECCV'22][naverclova]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dolphin-document-image-parsing-via-heterogeneous-anchor-promptingarxiv25bytedance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dolphin: Document Image Parsing via Heterogeneous Anchor Prompting[Arxiv'25][ByteDance]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layoutlmv2-multi-modal-pre-training-for-visually-rich-document-understandingijcnlp21hitmsra" class="md-nav__link">
+    <span class="md-ellipsis">
+      LayoutLMv2: Multi-modal Pre-training for Visually-Rich Document Understanding[IJCNLP'21][HIT,MSRA]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layoutlmv3-pre-training-for-document-ai-with-unified-text-and-image-maskingmm22msra" class="md-nav__link">
+    <span class="md-ellipsis">
+      LayoutLMv3: Pre-training for Document AI with Unified Text and Image Masking[MM'22][MSRA]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trocr-transformer-based-optical-character-recognition-with-pre-trained-modelsaaai23ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models[AAAI'23][MS]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="LLM_Serving_Survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems[Arixv'23][CMU]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Objectdet
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Objectdet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="objectdet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="objectdet/MSTCT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MS-TCT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="objectdet/yolov6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YOLOv6: A Single-Stage Object Detection Framework for Industrial Applications[meituan]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="objectdet/yolov7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors[CVPR'23][sinica.tw]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="security/DNN%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%8A%A0%E9%80%9F%E5%99%A8%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%AE%89%E5%85%A8%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DNN模型和加速器的硬件安全综述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="security/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%E9%A2%86%E5%9F%9F%E7%9A%84%E7%89%A9%E7%90%86%E5%AF%B9%E6%8A%97%E6%94%BB%E9%98%B2%E7%BB%BC%E8%BF%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    计算机视觉领域的物理对抗攻防综述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      信息检索、搜索
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="信息检索、搜索">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mobius-transformation-for-fast-inner-product-search-on-graphnips19baidu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Möbius Transformation for Fast Inner Product Search on Graph[NIPS'19][Baidu]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedding-based-retrieval-in-facebook-searchkdd20facebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embedding-based Retrieval in Facebook Search[KDD'20][Facebook]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transformer-memory-as-a-differentiable-search-indexnips22google" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transformer Memory as a Differentiable Search Index[NIPS'22][Google]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-neural-corpus-indexer-for-document-retrievalnips22msra" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Neural Corpus Indexer for Document Retrieval[NIPS'22][MSRA]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      推荐系统
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="推荐系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wide-deep-learning-for-recommender-systemsdlrs16google" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wide &amp; Deep Learning for Recommender Systems[DLRS'16][Google]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deepfm-a-factorization-machine-based-neural-network-for-ctr-predictionijcai17huawei" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeepFM: A Factorization-Machine based Neural Network for CTR Prediction[IJCAI'17][Huawei]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-cross-network-for-ad-click-predictionsdcnarxiv17google" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep &amp; Cross Network for Ad Click Predictions(DCN)[arXiv'17][google]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-interest-network-for-click-through-rate-predictiondinkdd18ali" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deep Interest Network for Click-Through Rate Prediction(DIN)[KDD'18][Ali]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      系统、编译器设计、优化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="系统、编译器设计、优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tvm-an-automated-end-to-end-optimizing-compiler-for-deep-learningosdi18uw" class="md-nav__link">
+    <span class="md-ellipsis">
+      TVM: an automated end-to-end optimizing compiler for deep learning[OSDI'18][UW]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ansor-generating-high-performance-tensor-programs-for-deep-learningosdi20cal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ansor: Generating High-Performance Tensor Programs for Deep Learning[OSDI'20][Cal]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relax-composable-abstractions-for-end-to-end-dynamic-machine-learningarxiv23uw" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relax: Composable Abstractions for End-to-End Dynamic Machine Learning[Arxiv'23][UW]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lightseq-a-high-performance-inference-library-for-transformersnaacl21bytedance" class="md-nav__link">
+    <span class="md-ellipsis">
+      LightSeq: A High Performance Inference Library for Transformers[NAACL'21][ByteDance]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lightseq2-accelerated-training-for-transformer-based-models-on-gpussc22bytedance" class="md-nav__link">
+    <span class="md-ellipsis">
+      LightSeq2: Accelerated Training for Transformer-based Models on GPUs[SC'22][ByteDance]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bring-your-own-codegen-to-deep-learning-compilerarivx21aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bring Your Own Codegen to Deep Learning Compiler[Arivx'21][AWS]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#towards-efficient-generative-large-language-model-serving-a-survey-from-algorithms-to-systemsarixv23cmu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems[Arixv'23][CMU]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ladder-enabling-efficient-low-precision-deep-learning-computing-through-hardware-aware-tensor-transformationosdi24ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ladder: Enabling Efficient Low-Precision Deep Learning Computing through Hardware-aware Tensor Transformation[OSDI'24][MS]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#welder-scheduling-deep-learning-memory-access-via-tile-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      Welder: Scheduling Deep Learning Memory Access via Tile-graph
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型优化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模型优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastformers-highly-efficient-transformer-models-for-natural-language-understandingarxiv20msra" class="md-nav__link">
+    <span class="md-ellipsis">
+      FastFormers: Highly Efficient Transformer Models for Natural Language Understanding[arxiv'20][MSRA]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ocr" class="md-nav__link">
+    <span class="md-ellipsis">
+      OCR 文字识别
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OCR 文字识别">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dbnet-real-time-scene-text-detection-with-differentiable-binarizationaaai20hust" class="md-nav__link">
+    <span class="md-ellipsis">
+      DBNet: Real-time Scene Text Detection with Differentiable Binarization[AAAI'20][HUST]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cptn-detecting-text-in-natural-image-with-connectionist-text-proposal-networkeccv16siatcas" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPTN: Detecting Text in Natural Image with Connectionist Text Proposal Network[ECCV'16][SIAT@CAS]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crnn-an-end-to-end-trainable-neural-network-for-image-based-sequence-recognition-and-its-application-to-scene-text-recognitionpami17hust" class="md-nav__link">
+    <span class="md-ellipsis">
+      CRNN: An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition[PAMI'17][HUST]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#svtr-scene-text-recognition-with-a-single-visual-modelijcai22bjtubaidu" class="md-nav__link">
+    <span class="md-ellipsis">
+      SVTR: Scene Text Recognition with a Single Visual Model[IJCAI'22][BJTU,Baidu]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-ocr-theory-towards-ocr-20-via-a-unified-end-to-end-modelarxiv24stepfun" class="md-nav__link">
+    <span class="md-ellipsis">
+      General OCR Theory: Towards OCR-2.0 via a Unified End-to-end Model[arxiv'24][StepFun]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nougat-neural-optical-understanding-for-academic-documentsiclr24meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nougat: Neural Optical Understanding for Academic Documents[ICLR'24][Meta]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dount-ocr-free-document-understanding-transformereccv22naverclova" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dount: OCR-free Document Understanding Transformer[ECCV'22][naverclova]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dolphin-document-image-parsing-via-heterogeneous-anchor-promptingarxiv25bytedance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dolphin: Document Image Parsing via Heterogeneous Anchor Prompting[Arxiv'25][ByteDance]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layoutlmv2-multi-modal-pre-training-for-visually-rich-document-understandingijcnlp21hitmsra" class="md-nav__link">
+    <span class="md-ellipsis">
+      LayoutLMv2: Multi-modal Pre-training for Visually-Rich Document Understanding[IJCNLP'21][HIT,MSRA]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layoutlmv3-pre-training-for-document-ai-with-unified-text-and-image-maskingmm22msra" class="md-nav__link">
+    <span class="md-ellipsis">
+      LayoutLMv3: Pre-training for Document AI with Unified Text and Image Masking[MM'22][MSRA]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trocr-transformer-based-optical-character-recognition-with-pre-trained-modelsaaai23ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models[AAAI'23][MS]
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">每周论文合集</h1>
+<h2 id="_2">信息检索、搜索</h2>
+<h3 id="mobius-transformation-for-fast-inner-product-search-on-graphnips19baidu">Möbius Transformation for Fast Inner Product Search on Graph[NIPS'19][Baidu]</h3>
+<ul>
+<li>现有的图上的ANN检索算法依赖于在metric measure(L2) 构建出的类德劳内图，但在no-metric measure(IP) MIPS 上无此性质，效果不佳（// TODO 效果不佳如何证明）</li>
+<li>提出了 mobius 变换：$y_i= x_i/‖x_i‖^2$ ，将数据集从 IP space 映射到 L2 sapce，在此基础上建图</li>
+<li>多个公开数据集上，同等算力下的Recall 精度有明显提升（20% ～ 30%）</li>
+</ul>
+<h3 id="embedding-based-retrieval-in-facebook-searchkdd20facebook">Embedding-based Retrieval in Facebook Search[KDD'20][Facebook]</h3>
+<h3 id="transformer-memory-as-a-differentiable-search-indexnips22google">Transformer Memory as a Differentiable Search Index[NIPS'22][Google]</h3>
+<ul>
+<li>将Transformer(T5模型)应用到信息检索，实现从问题到docid的映射。</li>
+<li>主要有几个问题：1. 文档表示：原始文本或词袋 2. 文本id表示：直接表示为整数、非结构化自动化编号以及结构化语义编号。3. 索引方法：问题到文档id(q,j)或者文本到文档id(d,j)。</li>
+<li>探索了Inputs2target、Targets2Inputs、Bidirectional、Span Corruption等几种索引方法，直接索引、集合索引、逆索引等文档表示方法，以及非结构化自动表示、结构化字符表示、语义结构化表示等几种不同的docid表示，实验验证了组合的表示方法。</li>
+</ul>
+<h3 id="a-neural-corpus-indexer-for-document-retrievalnips22msra">A Neural Corpus Indexer for Document Retrieval[NIPS'22][MSRA]</h3>
+<ul>
+<li>提出了一种端到端的基于Transformer的信息检索架构。</li>
+<li>传统的信息检索分为两类，一类是基于term的，建立倒排表，根据倒排表进行索引，缺点：无法召回语义相关的文档；另外一类是基于语义的，建立双塔模型，使用ANN进行检索，缺点：在精确匹配上表现较差，二是ANN有欧拉空间的强假设，模型无法合并文档交互？</li>
+<li>在预处理部分加入了kmeans,使文档ID具有分类层次化的特点，然后借助DocT5Query和Document As Query对文档生成query，将生成或真实的<query, docid>对送入到encoder中，使用了前缀可感知的共享权重decode进行解码，最后使用同一query间的输入尽可能接近，不同query间尽可能大进行对比学习，使得算法更加稳定。</li>
+<li>缺点：在v100机器上，最大的吞吐只有50左右，在实际场景中是不够的。当出现新的文档的时候，docid会发生变化，模型要进行重训练。</li>
+</ul>
+<h2 id="_3">推荐系统</h2>
+<h3 id="wide-deep-learning-for-recommender-systemsdlrs16google">Wide &amp; Deep Learning for Recommender Systems[DLRS'16][Google]</h3>
+<ul>
+<li>提出了一种wide和deep结合的推荐系统方案，wide部分使用LR模型，deep部分使用全连接网络模型，分别提取低阶和高阶的特征</li>
+<li>wide部分采用的是稀疏+稠密的特征工程，deep部分则直接对特征进行embedding，然后输入到深度网络中，两部分分别训练</li>
+<li>线上测试能提高3.9的收益</li>
+</ul>
+<h3 id="deepfm-a-factorization-machine-based-neural-network-for-ctr-predictionijcai17huawei">DeepFM: A Factorization-Machine based Neural Network for CTR Prediction[IJCAI'17][Huawei]</h3>
+<ul>
+<li>与wide&amp;deep一样都使用了wide和deep模型，但将wide和deep模型的训练融合在一起</li>
+<li>wide部分由LR换成了FM，wide和deep部分都采用了embedding稠密特征，无需进行特征工程。</li>
+</ul>
+<h3 id="deep-cross-network-for-ad-click-predictionsdcnarxiv17google">Deep &amp; Cross Network for Ad Click Predictions(DCN)[arXiv'17][google]</h3>
+<ul>
+<li>对wide&amp;deep网络的wide侧进行了修改，借鉴了残差网络，设计了交叉网络学习交叉特征</li>
+<li>交叉网络实际上就是通过xl和cross weight的乘积来得到当前特征与x0特征的权重，然后使用该权重与x0的乘积作为残差来学习</li>
+<li>是element粒度的特征交叉</li>
+</ul>
+<h3 id="deep-interest-network-for-click-through-rate-predictiondinkdd18ali">Deep Interest Network for Click-Through Rate Prediction(DIN)[KDD'18][Ali]</h3>
+<ul>
+<li>是对原始的深度推荐模型的改进，主要针对原始模型中sum pooling没有考虑item之间权重不同的问题</li>
+<li>文章有3点贡献： 1. 提出了DIN，借助了NMT中的Attention结构学习用户行为和候选Item之间的权重信息，在文中成为activation Unit 2. 提出dice激活函数，相当于prelu的泛化版本 3. 提出了稀疏训练的方法，在L2惩罚项更新的时候，只更新参数不为0的部分，对参数为0的部分不更新。</li>
+</ul>
+<h2 id="_4">系统、编译器设计、优化</h2>
+<h3 id="tvm-an-automated-end-to-end-optimizing-compiler-for-deep-learningosdi18uw">TVM: an automated end-to-end optimizing compiler for deep learning[OSDI'18][UW]</h3>
+<ul>
+<li>TVM是一个能够将上层计算图表示编译转化为后端IR的工具。首先是高层次计算优化，将计算图分解为Tensor和计算，然后使用自动优化对低级的Tensor和计算针对特定的硬件进行优化以达到最佳性能。</li>
+<li>高层次计算图级的优化：算子融合(融合相邻的算子)、常数折叠(提前计算静态值)、静态内存预分配(预分配内存)、数据存储转换(改变数据分布以利用缓存和SIMD特性)。</li>
+<li>低层次Tensor级优化：利用Halide原则将规划和计算分开，首先引入了领域专用语言Tensor expression表示计算，然后写Schedule进行优化，转化为TVM IR对应着特定硬件表示。具体的Schedule为：带共享内存的循环并行、向量化以利用硬件的SIMD和向量运算、访问执行分离隐藏延迟。</li>
+<li>自动化优化：使用了Xgboost根据配置进行性能预测，使用真实的测试数据作为训练数据，使用模拟退火的方法进行配置更新；并提供了一个可以交叉编译的分布式远程调用。</li>
+<li>开创性的工作，不过TVM现在还在开发当中，有些组件还不太稳定，另外还不够用户友好。</li>
+</ul>
+<h3 id="ansor-generating-high-performance-tensor-programs-for-deep-learningosdi20cal">Ansor: Generating High-Performance Tensor Programs for Deep Learning[OSDI'20][Cal]</h3>
+<ul>
+<li>是一个张量生成框架，有三个特色，一是有更大的搜索空间，二是在更大的搜索空间内进行高效地搜索，三是识别并优化子图以获得更好的端到端的性能</li>
+<li>如何选取更大的搜索空间？首先将原图划分为一系列子图，使用一些规则进行约束，从后往前枚举DAG图，论文列举了6种，1. 直接跳过 2. 严格inline 3. 数据重用时进行Tiling 3. 数据重用且可Fuse时 4. 数据重用但不可Fuse，使用Cache 5. 可Reduce并行</li>
+<li>如何高效地进行搜索，根据上一步的搜索空间得到的草稿，随机从搜索空间中选取一些点(tile size,并行化外部循环、向量化内部循环、unroll部分内循环)，然后使用cost model进行迭代微调</li>
+<li>使用xgboost作为cost model，每次选择一个特征空间，然后使用进化算法随机再变异一些基因，进行多次迭代，最后在硬件平台测量实际效果最后更新cost model</li>
+<li>限制：没有考虑dynamic shape，不支持稀疏计算，只考虑高层级的与硬件无关的代码优化，没有考虑诸如tensor的硬件相关的代码优化</li>
+</ul>
+<h3 id="relax-composable-abstractions-for-end-to-end-dynamic-machine-learningarxiv23uw">Relax: Composable Abstractions for End-to-End Dynamic Machine Learning[Arxiv'23][UW]</h3>
+<ul>
+<li>主要解决TVM推导过程中的动态形状问题</li>
+<li>提出了一种跟踪全局动态Tensor shape关系和调用的程序抽象</li>
+<li>跨层级的抽象优化，能同时使用tvm本身和其他外部的lib</li>
+<li>语法声明：相比与以？声明的TVM动态形状，改为以n、m的sym_var()形式声明，这样诸如reshape类的操作可以保留形状信息，提前申请内存，动态形状也是一等公民</li>
+<li>组合优化：跨层级的动态shape算子融合，减少了跨函数调用</li>
+<li>组合优化：预先内存分配，通过预留的形状信息，可有效减少内存分配大小</li>
+<li>组合优化：分步骤地进行lowwer，可以同时使用TensorIR和cutlass</li>
+</ul>
+<h3 id="lightseq-a-high-performance-inference-library-for-transformersnaacl21bytedance">LightSeq: A High Performance Inference Library for Transformers[NAACL'21][ByteDance]</h3>
+<ul>
+<li>主要针对transformer的优化，有3点贡献</li>
+<li>
+<ol>
+<li>将粗粒度的节点融合转化为细粒度的节点融合，以避免频繁的kernel启动，例如手写layer norm kernel可以节省内存启动和保存中间结果。</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>层次的自回归搜索，采用了检索和重排的思想。</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>动态的GPU内存重用方案，将前后依赖的结果存在相同的内存。</li>
+</ol>
+</li>
+</ul>
+<h3 id="lightseq2-accelerated-training-for-transformer-based-models-on-gpussc22bytedance">LightSeq2: Accelerated Training for Transformer-based Models on GPUs[SC'22][ByteDance]</h3>
+<ul>
+<li>主要针对transformer的优化，有4点贡献</li>
+<li>将粗粒度节点转化为手写的细粒度节点并进行融合，具体来讲就是将GEMM部分使用cuBLAS来实现，其他的元素级操作(Dropout, ReLU, Reshape)和约减操作(LayerNorm and Softmax)用手写的kernel来代替，主要对Transformer、Embedding、Criterion、Layer-batched cross Attention层进行了分析。</li>
+<li>有依赖的约减操作的拆分，对LayerNorm层的梯度计算进行拆分，分别并行计算两部分乘法运算以进行加速。对Softmax层实现了不同的模板，并进行参数调节以适应不同大小和不同形状的softmax计算。</li>
+<li>加速混合精度梯度更新计算。把所有要更新的参数放到一整片内存区，以避免每次更新的时候都要启动kernel去加载和卸载内存，同时可以节省一些内存。</li>
+<li>悬空张量的内存管理。具体来讲就是将内存分为永久内存和暂时内存，并将训练参数和更新参数要用的最大内存提前分配好，并进行内存复用，可以节省一部分频繁加载卸载的消耗。</li>
+<li>整体还是偏工程的工作，作为学术的novelty并不那么fancy，不过对于实现还是有些启发的。</li>
+</ul>
+<h3 id="bring-your-own-codegen-to-deep-learning-compilerarivx21aws">Bring Your Own Codegen to Deep Learning Compiler[Arivx'21][AWS]</h3>
+<ul>
+<li>为了解决不同模型在不同编译器上的部署问题，提出了一个统一的编译器划分框架</li>
+<li>首先将编译模型分为Host端和加速器端，Host端调用通用的函数，加速器端则使用抵用依赖的指令</li>
+<li>执行三步操作对图进行划分：1. 基于pattern的划分模式 2. 对划分好的块进行注释 3. 按照执行量的阈值进行划分 </li>
+<li>针对加速的设计主要考虑两点：量化和NCHW转换；针对codegen 使用了3种方式，json、c和特定格式；</li>
+<li>在runtime时对模型输入输出权重进行管理，可以利用内存重用和cache engine的一些方法</li>
+</ul>
+<h3 id="towards-efficient-generative-large-language-model-serving-a-survey-from-algorithms-to-systemsarixv23cmu">Towards Efficient Generative Large Language Model Serving: A Survey from Algorithms to Systems[Arixv'23][CMU]</h3>
+<ul>
+<li>见论文<a href="LLM_Serving_Survey/">LLM_Serving_Survey</a></li>
+</ul>
+<h3 id="ladder-enabling-efficient-low-precision-deep-learning-computing-through-hardware-aware-tensor-transformationosdi24ms">Ladder: Enabling Efficient Low-Precision Deep Learning Computing through Hardware-aware Tensor Transformation[OSDI'24][MS]</h3>
+<ul>
+<li>基于3点观察：1. 越来越多的量化类型 2. 硬件对量化支持并不丰富 3. 低精度计算并不高效</li>
+<li>提出了tType和tTile分别表示数据类型和分片，将tTile作为最小的计算单位，可以表示任意位数</li>
+<li>解耦计算和存储，pipeline分为load、conmpute和store三个阶段，有Slice、Map、Pad、Convert等几种变换</li>
+<li>引入了更大的搜索空间，1. 根据硬件带宽分配作为提示 2. 使用现有的tvm调度方法 3. 添加变换</li>
+</ul>
+<h3 id="welder-scheduling-deep-learning-memory-access-via-tile-graph">Welder: Scheduling Deep Learning Memory Access via Tile-graph</h3>
+<ul>
+<li>基于几点观察：1. 模型推理瓶颈在内存访问 2. 内存访问间有重用和提高带宽的机会 3. 这种重用机会是可以配置来进行tradeoff的</li>
+<li>提出了基于tile的内存访问调度方法，首先把相邻间的算子计算，分为了大小不同的tile,然后去遍历不同的fuse模式，找到内存访问最小的那种模式</li>
+<li>举了Conv+Relu+MaxPooling的例子，加载[4,4,c]到L1中，加载[3,3]到L0中，在L0级别计算Conv+Relu Fuse，在L1时累计[2,2]个元素，然后再调度到L0中进行maxpooling计算</li>
+</ul>
+<h2 id="_5">模型优化</h2>
+<h3 id="fastformers-highly-efficient-transformer-models-for-natural-language-understandingarxiv20msra">FastFormers: Highly Efficient Transformer Models for Natural Language Understanding[arxiv'20][MSRA]</h3>
+<ul>
+<li>msra文章，但是只是单纯做了模型裁剪、蒸馏和量化，是一篇纯实验结果堆的文章 </li>
+<li>https://github.com/microsoft/fastformers</li>
+</ul>
+<h2 id="ocr">OCR 文字识别</h2>
+<h3 id="dbnet-real-time-scene-text-detection-with-differentiable-binarizationaaai20hust">DBNet: Real-time Scene Text Detection with Differentiable Binarization[AAAI'20][HUST]</h3>
+<ul>
+<li>将文本检测看作是一个图像分割任务，先使用4层网络进行特征提取，然后使用类似特征金字塔的方式将特征放大。</li>
+<li>使用放大后的的特征图预测二值图，DBNet的创新点在于，它不光预测二值图，还会预测阈值，即阈值也是受训练的，相应的值是可学习的值</li>
+<li>后处理部分: 先通过cv的findpolygraphpoint方法找到图像中不规则点，然后使用cv.maxrec找到其中最大矩形点,计算nms，将其中不符合分数和抑制的框删除，得到最后文本检测框</li>
+</ul>
+<h3 id="cptn-detecting-text-in-natural-image-with-connectionist-text-proposal-networkeccv16siatcas">CPTN: Detecting Text in Natural Image with Connectionist Text Proposal Network[ECCV'16][SIAT@CAS]</h3>
+<ul>
+<li>使用基于目标检测的方法进行文本检测，使用fasterrcnn模型进行检测，将检测框分块，使用w=16,h设置几个不同高度方式进行预测，预测时只预测了中心坐标和高度</li>
+</ul>
+<h3 id="crnn-an-end-to-end-trainable-neural-network-for-image-based-sequence-recognition-and-its-application-to-scene-text-recognitionpami17hust">CRNN: An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition[PAMI'17][HUST]</h3>
+<ul>
+<li>模型部分:先进行cnn卷出来256<em>1</em>768大小的特征，然后从256维度进行切割，256为时序维度，768为seq维度，那么就可以放到rnn，这里是两层的双向lstm，经过卷积后得到输出特征</li>
+<li>模型的输出为[1,60,6625]，使用ctc方式对模型进行后处理，其中有空格和省略符号，那么就可以得到60个字符编码，去除空格即可</li>
+</ul>
+<h3 id="svtr-scene-text-recognition-with-a-single-visual-modelijcai22bjtubaidu">SVTR: Scene Text Recognition with a Single Visual Model[IJCAI'22][BJTU,Baidu]</h3>
+<ul>
+<li>介绍了场景文本识别的几种主流结构，分别为：1. CNN+RNN 2. CNN + 自回归 3. CNN + MHA fusion </li>
+<li>首先将图像经过一个Patch Embedding，通常是CNN，在这里是2个3*3 stride为2的CBR结构</li>
+<li>然后经过3个stage，每个stage包含了mixing block和merging的网络结构，最终图像大小从<code>H\*W\*3 -&gt; 1 \* (W/4) * D_3</code></li>
+<li>mixing block使用了global attention结构来提取字符和字符间的特征，使用local attention提取笔画间的特征，merging操作是一个CB块，将高度减半，相应地channel的维度翻倍</li>
+<li>在paddleocr中，使用了两个mobilenet block提取视觉特征，svtrblock的stage设置为2，后面的GAP被替换成了conv1x1</li>
+</ul>
+<h3 id="general-ocr-theory-towards-ocr-20-via-a-unified-end-to-end-modelarxiv24stepfun">General OCR Theory: Towards OCR-2.0 via a Unified End-to-end Model[arxiv'24][StepFun]</h3>
+<ul>
+<li>包含了3部分，分别是image encoder层，linear适应层和输出解码层，其中encoder层使用的ViDet模型,解码器使用的Qwen-0.5B模型</li>
+<li>训练分为3步，第一步训练encoder,使用纯字符识别任务，使用opt-125M进行解码，第二步连接了Qwen-0.5B解码器，使用更大量的数据进行联合训练，第三步冻结encoder,训练decoder以适应细粒度的任务</li>
+<li>数据输入为1024*1024*3,输出的token数量为256*1024，linear层的权重为1024*1024,decoder部分与Qwen-0.5B对齐，</li>
+<li>在预训练encoder阶段，使用5M数据，3M的场景识别和2M的文档识别，3M的场景数据使用paddleocr识别工具，分割为整图级别和单行级别，2M的文档数据使用fitiz提取</li>
+</ul>
+<h3 id="nougat-neural-optical-understanding-for-academic-documentsiclr24meta">Nougat: Neural Optical Understanding for Academic Documents[ICLR'24][Meta]</h3>
+<ul>
+<li>一个端到端的文档识别模型，使用的encoder和decoder的模式，其中encoder使用的swin transformer,decoder使用的是mbart</li>
+<li>输入大小为896*672,Decoder采用的是10层的架构，包含了自注意层和跨注意层，最大长度为4096,所有模型均采用预训练模型</li>
+<li>数据增强部分：使用了Albumentations库进行增强，在输入patch中加入扰动</li>
+<li>模型是一页一页进行预测的，预测整篇文档时，会先预测全部，然后使用一个TF-IDF向量机的模型进行模糊分页和fuzzy比对精确分页</li>
+</ul>
+<h3 id="dount-ocr-free-document-understanding-transformereccv22naverclova">Dount: OCR-free Document Understanding Transformer[ECCV'22][naverclova]</h3>
+<ul>
+<li>传统的文档理解是先进行OCR识别，然后将OCR识别放到下游理解任务，本文提出的是一个端到端的模型</li>
+<li>模型包含了图像编码部分和文本解码部分，其中编码部分使用的swin transformers，解码期使用的Bart，对于一个输入，定义一个特殊字符，然后采用自回归的方式生成内容</li>
+<li>使用了一个SynthDoG的图像生成器，使用wiki文本在imagenet作为背景进行生成</li>
+<li>预训练任务是从左到右读取文本内容，finetune任务是微调对应任务</li>
+</ul>
+<h3 id="dolphin-document-image-parsing-via-heterogeneous-anchor-promptingarxiv25bytedance">Dolphin: Document Image Parsing via Heterogeneous Anchor Prompting[Arxiv'25][ByteDance]</h3>
+<ul>
+<li>提供了两阶段的OCR解析方法：先解析后分析，第一阶段使用layout进行解析，第二阶段使用细粒度parse进行并行化识别，两阶段使用prompt进行控制</li>
+<li>类似于Dount模型，使用的是swin transformer作为视觉encoder，使用mBart作为解码器</li>
+<li>第一阶段会解析出一堆layout，使用第一阶段的layout信息去分割图片，进行二阶段并行识别元素级信息</li>
+</ul>
+<h3 id="layoutlmv2-multi-modal-pre-training-for-visually-rich-document-understandingijcnlp21hitmsra">LayoutLMv2: Multi-modal Pre-training for Visually-Rich Document Understanding[IJCNLP'21][HIT,MSRA]</h3>
+<ul>
+<li>属于预训练模型，分为文本embedding、图像embedding和版式layout,其中文本embedding包含了文本的token编码、位置编码和区域编码，图像编码包含了特征图patch编码、位置编码，对于1D position embedding，和text embedding layer共享；对于segment embedding使用符号[C]（text的segment embedding用的是[A]和[B]）。layout编码会编码6个位置特征，从x和y方向上分别编码，然后将所有便么加在一起</li>
+<li>Spatial-Aware Attention：加入了相对位置上的偏置参数，算是给了额外的先验qk的位置信息</li>
+<li>预训练：1. 预测遮蔽（mask）的text token。对于被遮蔽的text token，对应的图片区域也要遮蔽掉。2. 图片上的一些token lines会被覆盖（cover）掉，然后使用对应的text token预测图片中的token line是否被覆盖 3. 预测该文本在该文档里（还是在其它文档里）</li>
+</ul>
+<h3 id="layoutlmv3-pre-training-for-document-ai-with-unified-text-and-image-maskingmm22msra">LayoutLMv3: Pre-training for Document AI with Unified Text and Image Masking[MM'22][MSRA]</h3>
+<ul>
+<li>相比v2没有使用CNN编码器，在text embedding上，没有使用v2 word级别的编码，而是使用的句子级别的embedding，所有单词共享一个bbox；在图像编码上，使用了把图像分割为p*p大小的块，然后展开为HW/P^2大小的2维矩阵，注意这里只使用了1D向量</li>
+<li>使用了3种损失函数：MLM，MIM和WPA，其中MLM是指对文本span进行mask，大概30%,训练从图像到文本的能力；MIM mask了40%的block级别的token，训练文本是重建图像的能力。WPA，是文本和图像的对齐，当文本被mask后，计算对应图像mask的损失</li>
+</ul>
+<h3 id="trocr-transformer-based-optical-character-recognition-with-pre-trained-modelsaaai23ms">TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models[AAAI'23][MS]</h3>
+<ul>
+<li>行识别模型，使用了纯transformer架构，encoder和decoder使用的都是预训练模型</li>
+<li>编码器使用的是类Deit的架构，实验中使用的是Deit和BEiT，解码器使用的类bert的架构，实验中使用的RoBERTa和miniLM</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
